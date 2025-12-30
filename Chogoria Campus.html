@@ -1,0 +1,23 @@
+<script>
+  const loginForm = document.getElementById('loginForm');
+  const logoutBtn = document.querySelector('.nav a[href="#"]'); // adjust selector if needed
+
+  // Handle login
+  loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Normally you'd send credentials to backend here.
+    document.getElementById('public').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    document.querySelector('.user-name').textContent = document.getElementById('regno').value;
+  });
+
+  // Handle logout
+  logoutBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('dashboard').style.display = 'none';
+    document.getElementById('public').style.display = 'block';
+    document.querySelector('.user-name').textContent = 'Guest';
+    // Optionally clear login form
+    loginForm.reset();
+  });
+</script>
